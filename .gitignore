@@ -112,3 +112,16 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# --- Project additions ---
+# OS files
+.DS_Store
+Thumbs.db
+
+# Personal agent settings (shared instructions live in AGENTS.md)
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Quest builds (never commit builds)
+*.apk
+*.aab
