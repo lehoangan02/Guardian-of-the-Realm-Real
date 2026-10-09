@@ -46,7 +46,7 @@ For Codex/Antigravity, if `init` didn't configure it, run `metavr mcp --help` to
 
 ## Rules for agents using MCP
 - The Unity Editor must be open (and not in a modal dialog/compiling) for Unity MCP calls to work. If not connected: say so, don't guess.
-- Respect scene ownership ([../tech/git-workflow.md](../tech/git-workflow.md)). Prefer prefab/SO/script edits.
+- Don't edit shared scenes without asking ([../tech/git-workflow.md](../tech/git-workflow.md)). Prefer prefab/SO/script edits.
 - After script changes, wait for recompilation and **read the console** before claiming success.
 - Never run builds or device installs without the human's go-ahead (they take minutes and need the headset on).
 

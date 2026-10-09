@@ -2,11 +2,6 @@
 
 Hard deadline: **Nov 18 12:00 PM PST** (Nov 19 03:00 Vietnam). Internal deadline: **Nov 17**. Each week ends with a **device build on Quest 3** that someone plays end-to-end.
 
-Suggested ownership (adjust freely):
-- **Le Hoang An** — MR foundation (passthrough, board placement, anchors), hand gesture layer, abilities
-- **Nguyen Duc Thinh** — Level 1, heroes, towers, art integration
-- **Tran Duc An (Codex)** — wave/enemy/economy systems, Level 2, tests & tools
-- **Audio owner** — _tbd_ (see [../assets/audio-guide.md](../assets/audio-guide.md))
 
 ## W1 · Oct 7–13 — Foundations
 - [ ] Re-read Devpost rules & judging criteria → update [../competition/brief.md](../competition/brief.md)

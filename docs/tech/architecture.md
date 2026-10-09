@@ -3,12 +3,12 @@
 > Proposed v0.1. Update as the code grows; this file should always describe what exists, with "planned" marked.
 
 ## Scenes
-| Scene | Purpose | Owner |
-|---|---|---|
-| `Bootstrap` | Loads services, passthrough, camera rig, hand tracking; restores board anchor | Le Hoang An |
-| `Level_01_ForestRoad` | Additive level content (board, path, spawns) | Nguyen Duc Thinh |
-| `Level_02_CastleSiege` | Additive level content | Tran Duc An |
-| `Sandbox_<name>` | Personal test scenes, not shipped | each person |
+| Scene | Purpose |
+|---|---|
+| `Bootstrap` | Loads services, passthrough, camera rig, hand tracking; restores board anchor |
+| `Level_01_ForestRoad` | Additive level content (board, path, spawns) |
+| `Level_02_CastleSiege` | Additive level content |
+| `Sandbox_<name>` | Personal test scenes, not shipped |
 
 `Bootstrap` stays loaded; levels are loaded **additively** as children of the board root so the whole level moves with the anchored board.
 

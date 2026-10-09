@@ -9,7 +9,7 @@ Guardian of the Realm is a **mixed-reality tower-defense game** (Kingdom Rush-st
 1. **Hands-only.** Every feature must be fully usable with hand tracking. Never require a controller, never add a controller-only path. See [docs/design/interactions.md](docs/design/interactions.md).
 2. **Seated, short sessions.** Design for a seated player at a table; a satisfying session in ≤10 minutes; fast cold start; clean pause/resume.
 3. **Performance budget:** stable 72 fps on Quest 3 (never below 60). No per-frame allocations in gameplay loops, no `Find*`/`GetComponent` in `Update`.
-4. **Do not edit scenes you don't own.** Scene ownership is listed in [docs/tech/git-workflow.md](docs/tech/git-workflow.md). Prefer changing prefabs, ScriptableObjects and scripts.
+4. **Don't edit shared scenes without asking the human first** (see [docs/tech/git-workflow.md](docs/tech/git-workflow.md)). Prefer changing prefabs, ScriptableObjects and scripts.
 5. **Never hand-edit `.meta` files, `Library/`, `ProjectSettings/` GUIDs, or `Packages/packages-lock.json`.** Let Unity generate them. Always commit an asset together with its `.meta`.
 6. **Licenses:** only CC0 / royalty-free-commercial / CC-BY assets. Every third-party asset (art, audio, fonts) must be logged in [docs/assets/credits.md](docs/assets/credits.md) in the same commit.
 7. **Don't commit or push unless the human asks.** Work on a feature branch, never directly on `main`.
@@ -24,7 +24,7 @@ Guardian of the Realm is a **mixed-reality tower-defense game** (Kingdom Rush-st
 | Gesture / hand interaction spec | [docs/design/interactions.md](docs/design/interactions.md) |
 | Code architecture | [docs/tech/architecture.md](docs/tech/architecture.md) |
 | C# & Unity conventions | [docs/tech/conventions.md](docs/tech/conventions.md) |
-| Git, LFS, branches, scene ownership | [docs/tech/git-workflow.md](docs/tech/git-workflow.md) |
+| Git, LFS, branches, scenes | [docs/tech/git-workflow.md](docs/tech/git-workflow.md) |
 | Unity MR project setup (Quest 3) | [docs/setup/unity-mr-quest3.md](docs/setup/unity-mr-quest3.md) |
 | MCP servers (Unity, Meta device) | [docs/setup/mcp.md](docs/setup/mcp.md) |
 | Agent tooling & Meta agent skills | [docs/setup/agent-tooling.md](docs/setup/agent-tooling.md) |

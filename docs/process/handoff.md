@@ -37,3 +37,10 @@ Append-only. **Newest entry at the top.** Every human or agent work session ends
 **Also:** Added the missing KayKit Skeletons and Character Animations rows to `docs/assets/credits.md` (all 7 packs CC0, checked against each pack's License.txt) and promoted Skeletons from "candidate" in art-assets.md. All pack folders have `.meta` files.
 **Open issues:** credits.md "Files used" is still `_tbd_`; itch.io URLs for the two new KayKit rows are unverified guesses. Whole packs are imported, but git-workflow says import only what we use — prune later.
 **Next:** Fill in "Files used"; verify the URLs.
+
+### 2026-10-09 — Le Hoang An (Claude Code) — main
+**Did:** Removed my invented assignment of `Level_01_ForestRoad` to Nguyen Duc Thinh (git-workflow.md, architecture.md, roadmap.md); it is now "unassigned (TBD)".
+**Open issues:** The other owners (Bootstrap, Level_02, roadmap split) were also proposals from the first docs pass and are unconfirmed — confirm with the team.
+
+### 2026-10-09 — Le Hoang An (Claude Code) — main
+**Did:** Removed all invented task/scene assignments (roadmap "Suggested ownership", Owner columns in architecture.md, scene ownership table in git-workflow.md, audio owner line) at the human's request; AGENTS.md rule 4 now says to ask before editing shared scenes. No one has been assigned any task.

@@ -34,15 +34,10 @@ Everything binary (models, textures, audio, video, fonts, zips, `.unitypackage`)
 - Branch per task: `feat/board-placement`, `fix/thunder-double-fire`, `docs/audio-guide`, `art/level1-dressing`.
 - Small PRs (< ~1 day of work). Another teammate reviews; for agent-written PRs, the human who ran the agent is responsible and must have tested it.
 - PR description: what, why, how tested (editor / simulator / device), screenshots/video for visible changes.
-- Rebase or merge `main` into your branch often; resolve scene conflicts with the scene owner.
+- Rebase or merge `main` into your branch often; resolve scene conflicts with whoever else is editing the scene.
 
-## Scene ownership (avoid unmergeable conflicts)
-| Scene | Owner |
-|---|---|
-| `Bootstrap` | Le Hoang An |
-| `Level_01_ForestRoad` | Nguyen Duc Thinh |
-| `Level_02_CastleSiege` | Tran Duc An |
-Only the owner edits a scene; others change prefabs or ask the owner. Reassign here when needed. Agents must respect this table.
+## Scenes (avoid unmergeable conflicts)
+Scenes don't merge well. Before editing a shared scene, check with the team that nobody else is changing it; otherwise prefer prefabs, ScriptableObjects and scripts. Do your experiments in a personal `Sandbox_<You>` scene.
 
 ## Commit messages
 `<area>: <imperative summary>` — e.g. `abilities: add thunder strike on fist under cloud`. Agent-assisted commits keep the agent's co-author trailer.

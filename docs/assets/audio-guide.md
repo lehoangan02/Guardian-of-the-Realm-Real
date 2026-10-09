@@ -86,9 +86,8 @@ For music: does the loop point click? Does battle music stay exciting but not ti
 - **Hand feedback without haptics:** every grab/release/gesture-armed state gets a distinct short sound attached to the hand position. This is our replacement for controller rumble.
 - **Music state machine:** Placement theme → Build (calm) ↔ Wave (intense) crossfade → Boss → Victory/Defeat stinger.
 
-## 8. Workflow & ownership
+## 8. Workflow
 1. Week 2: placeholder pass (Kenney + jsfxr) for every P0 event — no silent actions.
 2. Week 4: audio pass 1 — real SFX for abilities/heroes, 1 battle music loop.
 3. Week 5: audio pass 2 — all P1, mixing session **in the headset**, ambience.
 4. Week 6: final mix on the demo-video build.
-Assign one **audio owner** who approves sounds for consistency (fill in): ________
