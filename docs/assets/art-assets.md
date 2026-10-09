@@ -9,7 +9,8 @@ All packs below are **CC0** (public domain), so commercial use is fine and no cr
 | Kenney — Castle Kit | Castle gate (the thing we defend), walls, Level 2 | https://kenney.nl/assets/castle-kit |
 | Kenney — Fantasy Town Kit | Houses, market, props for Level 1 | https://kenney.nl/assets/fantasy-town-kit |
 | Kenney — Mini Forest | Trees, rocks, foliage | https://kenney.nl/assets/mini-forest |
-| *(candidate)* KayKit — Skeletons / other KayKit packs | Enemies matching hero style | https://kaylousberg.itch.io |
+| KayKit — Skeletons | Enemies matching hero style | https://kaylousberg.itch.io/kaykit-skeletons |
+| KayKit — Character Animations | Shared animation set (Humanoid rig) + mannequin | https://kaylousberg.itch.io/kaykit-character-animations |
 
 ## Import rules
 - Download the **FBX** (or GLB with a glTF importer) version. Import only the models we use into `Assets/Art/<pack-folder>/` (keep the original download folder name, e.g. `kenney_castle-kit`, `KayKit_Adventurers_2.0_FREE`).

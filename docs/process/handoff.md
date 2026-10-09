@@ -34,5 +34,6 @@ Append-only. **Newest entry at the top.** Every human or agent work session ends
 ### 2026-10-09 — Le Hoang An (Claude Code) — main
 **Did:** Art packs already live in `Assets/Art/<pack-folder>/`, so I updated the docs instead of moving assets: `AGENTS.md` repo layout, `docs/assets/art-assets.md`, `docs/tech/conventions.md`, `docs/tech/git-workflow.md` now say `Assets/Art/` (no `ThirdParty/`).
 **Verified:** Docs only; no assets or `.meta` files touched.
-**Open issues:** `Assets/Art/KayKit_Skeletons_1.1_FREE` has no sibling `.meta` file — let Unity regenerate it and commit it. Packs are not yet logged in `docs/assets/credits.md` (check).
-**Next:** Log the art packs in credits.md.
+**Also:** Added the missing KayKit Skeletons and Character Animations rows to `docs/assets/credits.md` (all 7 packs CC0, checked against each pack's License.txt) and promoted Skeletons from "candidate" in art-assets.md. All pack folders have `.meta` files.
+**Open issues:** credits.md "Files used" is still `_tbd_`; itch.io URLs for the two new KayKit rows are unverified guesses. Whole packs are imported, but git-workflow says import only what we use — prune later.
+**Next:** Fill in "Files used"; verify the URLs.
