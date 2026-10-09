@@ -14,7 +14,7 @@
 - [ ] **Meta Horizon (Meta Quest) mobile app** — pair your Quest 3, enable **Developer Mode** (requires the developer org you're in as Start members).
 - [ ] **Meta Quest Developer Hub (MQDH)** (Mac & Windows) — device manager, install APKs, logs, casting/recording (useful for the demo video).
 - [ ] **Windows only:** **Meta Horizon Link** (Quest Link) app for Play-in-Editor on the headset.
-- [ ] **Meta XR Simulator** (installed via the Meta XR SDK in Unity) — test without a headset; works on Mac.
+- [ ] **Meta XR Simulator** (installed via the Meta XR SDK in Unity) — optional. Full features on Windows only; on macOS it is limited (no hand tracking / passthrough / rooms). Even on Windows, hands are preset poses, not continuous tracking.
 - [ ] **Meta VR CLI**: `npx metavr@latest init` (also sets up agent skills — see [agent-tooling.md](agent-tooling.md)).
 - [ ] On Quest 3: Settings → Hands and body tracking → **Hand tracking ON**, auto-switch from controllers ON. Run **Space Setup** in the room with your table so the table is captured as a furniture object.
 
@@ -55,8 +55,15 @@ Commit, push, done. Write the exact Unity + Meta SDK versions into this file and
 | OS | Fast loop | Device loop |
 |---|---|---|
 | Windows | **Quest Link** + Play mode in editor (hands work over Link) | Build And Run (USB-C) |
-| macOS | **Meta XR Simulator** in Play mode (synthetic hands, simulated rooms incl. tables) | Build And Run (USB-C) or MQDH install |
+| macOS | **Flat Play mode in a `Sandbox_<You>` scene with `DesktopDebugInput`** (mouse/keyboard stand-in for hands; see below). Meta XR Simulator on Mac is *limited*: controller sim only, no hand tracking, passthrough or room setup | Build And Run (USB-C) or MQDH install |
 Tips: use **Build And Run** with incremental builds; keep a small `Sandbox_<You>` scene; `metavr` CLI / MQDH for logcat.
+
+## Developing without a headset (Mac / no device in reach)
+Do not build a separate 3D game and port it later. Build the level as a 3D diorama under `BoardRoot` (real table scale, ~0.6–1 m wide); the same level then works in a flat editor scene and in MR. MR only changes where the board sits (MRUK table + anchor) and where input comes from.
+- Gameplay listens to an input abstraction (`IGameInput`: poke spot, grab/drop hero, ability gestures), never to Meta hand APIs.
+- `HandGestureService` implements it on device. `DesktopDebugInput` implements it in the Editor only (click = poke, drag = grab/drop, keys 1–4 = rain/thunder/meteor/punch). It is a dev tool and must not ship, so the hands-only rule still holds for builds.
+- Only the device can validate: hand feel (pinch/grab thresholds, gesture recognition), board placement on a real table, readability at table distance, fps. Plan each lab visit with a checklist; the roadmap expects a device build every week.
+- If a teammate has Windows, borrow it for gesture tuning via Quest Link (real hands in Play mode).
 
 ## Board placement implementation notes
 - MRUK: on scene loaded, query anchors with label `TABLE`; pick the largest surface in front of the user → propose placement (board centered, facing the user).

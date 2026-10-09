@@ -22,6 +22,7 @@
 | **Towers** | `BuildSpot`, `Tower`, `TowerDefinition` (SO), `Projectile` (pooled) | Building/upgrading, targeting |
 | **Heroes** | `Hero`, `HeroDefinition` (SO), `HeroDragController` | Grab/drop on road, auto-combat, respawn |
 | **Abilities** | `AbilityController`, `RainCloudAbility`, `ThunderAbility`, `MeteorAbility`, `PunchAbility` | Gesture → ability, cooldowns |
+| **Input** | `IGameInput`, `HandGestureService` (device), `DesktopDebugInput` (Editor only, never shipped) | Gameplay depends only on `IGameInput` events (poke, grab/drop, ability gestures), so the full loop is playable with mouse/keyboard without a headset |
 | **Hands** | `HandGestureService` (wraps Interaction SDK pose/shape detection) | One place translating hand data into gesture events; abilities never read raw joints |
 | **Economy** | `GoldWallet`, `LivesCounter` | |
 | **Audio** | `AudioService`, `SoundEvent` (SO with clip variants, volume, pitch range, mixer group) | All sounds go through `SoundEvent`s; music state machine |
