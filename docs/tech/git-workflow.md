@@ -48,4 +48,4 @@ Only the owner edits a scene; others change prefabs or ask the owner. Reassign h
 `<area>: <imperative summary>` — e.g. `abilities: add thunder strike on fist under cloud`. Agent-assisted commits keep the agent's co-author trailer.
 
 ## Big files & imports
-Import asset packs **only what we use** (pick individual models/sounds), into `Assets/ThirdParty/...`, and log them in [../assets/credits.md](../assets/credits.md).
+Import asset packs **only what we use** (pick individual models/sounds), into `Assets/Art/...`, and log them in [../assets/credits.md](../assets/credits.md).

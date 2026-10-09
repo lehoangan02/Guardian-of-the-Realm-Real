@@ -12,7 +12,7 @@ All packs below are **CC0** (public domain), so commercial use is fine and no cr
 | *(candidate)* KayKit — Skeletons / other KayKit packs | Enemies matching hero style | https://kaylousberg.itch.io |
 
 ## Import rules
-- Download the **FBX** (or GLB with a glTF importer) version. Import only the models we use into `Assets/ThirdParty/<Author>/<Pack>/`.
+- Download the **FBX** (or GLB with a glTF importer) version. Import only the models we use into `Assets/Art/<pack-folder>/` (keep the original download folder name, e.g. `kenney_castle-kit`, `KayKit_Adventurers_2.0_FREE`).
 - Never edit in place: make prefab variants in `Assets/_Project/Prefabs/`.
 - **Scale:** Kenney tiles are ~1 unit; our board is ~0.8 m wide. Build levels at "world" scale under a `BoardRoot`, then scale `BoardRoot` (e.g. 0.05). All gameplay logic must be scale-independent (see [../tech/architecture.md](../tech/architecture.md)).
 - **Materials:** Kenney & KayKit use one shared color-palette texture → convert to **URP/Lit** (or Simple Lit for perf) and **share one material** across the pack for batching.

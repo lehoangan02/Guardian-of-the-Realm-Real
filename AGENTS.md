@@ -38,7 +38,7 @@ Guardian of the Realm is a **mixed-reality tower-defense game** (Kingdom Rush-st
 ```
 /                      Unity project root (Assets/, Packages/, ProjectSettings/)
 Assets/_Project/       ALL our own content (scripts, prefabs, scenes, SOs, audio, materials)
-Assets/ThirdParty/     imported packs (Kenney, KayKit, audio packs) — do not modify in place
+Assets/Art/            imported art packs (Kenney, KayKit) — do not modify in place
 docs/                  human + agent documentation (Markdown only)
 ```
 Details in [docs/tech/conventions.md](docs/tech/conventions.md).

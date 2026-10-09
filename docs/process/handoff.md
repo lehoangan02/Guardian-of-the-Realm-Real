@@ -30,3 +30,9 @@ Append-only. **Newest entry at the top.** Every human or agent work session ends
 **Verified:** Docs links checked. No Unity project yet.
 **Open issues:** Pin Unity & Meta SDK versions; confirm Devpost judging criteria & submission format; scene owners and audio owner are proposals.
 **Next:** Follow [../setup/unity-mr-quest3.md](../setup/unity-mr-quest3.md) to create the Unity project and reach the "hello MR" milestone.
+
+### 2026-10-09 — Le Hoang An (Claude Code) — main
+**Did:** Art packs already live in `Assets/Art/<pack-folder>/`, so I updated the docs instead of moving assets: `AGENTS.md` repo layout, `docs/assets/art-assets.md`, `docs/tech/conventions.md`, `docs/tech/git-workflow.md` now say `Assets/Art/` (no `ThirdParty/`).
+**Verified:** Docs only; no assets or `.meta` files touched.
+**Open issues:** `Assets/Art/KayKit_Skeletons_1.1_FREE` has no sibling `.meta` file — let Unity regenerate it and commit it. Packs are not yet logged in `docs/assets/credits.md` (check).
+**Next:** Log the art packs in credits.md.

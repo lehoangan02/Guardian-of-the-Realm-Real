@@ -13,12 +13,10 @@ Assets/
       Runtime/      GuardianRealm.Runtime.asmdef  (namespaces GuardianRealm.*)
       Editor/       GuardianRealm.Editor.asmdef
       Tests/        EditMode/, PlayMode/
-  ThirdParty/
-    Kenney/<PackName>/
-    KayKit/<PackName>/
-    Audio/<SourceName>/
+  Art/    (sibling of _Project, i.e. Assets/Art/)
+    <pack-folder>/      original pack name, e.g. kenney_castle-kit, KayKit_Adventurers_2.0_FREE
 ```
-- Never modify files under `ThirdParty/` directly — make a prefab variant / material copy in `_Project`.
+- Never modify files under `Assets/Art/` directly — make a prefab variant / material copy in `_Project`.
 - `Assets/Oculus/`, `Assets/MetaXR/`, `Assets/XR/` etc. created by SDKs stay where the SDK puts them.
 
 ## Naming
