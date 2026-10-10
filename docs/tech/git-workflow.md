@@ -40,7 +40,7 @@ Everything binary (models, textures, audio, video, fonts, zips, `.unitypackage`)
 Scenes don't merge well. Before editing a shared scene, check with the team that nobody else is changing it; otherwise prefer prefabs, ScriptableObjects and scripts. Do your experiments in a personal `Sandbox_<You>` scene.
 
 ## Commit messages
-`<area>: <imperative summary>` — e.g. `abilities: add thunder strike on fist under cloud`. Agent-assisted commits keep the agent's co-author trailer.
+`<area>: <imperative summary>` — e.g. `abilities: add thunder strike on downward fist`. Agent-assisted commits keep the agent's co-author trailer.
 
 ## Big files & imports
 Import asset packs **only what we use** (pick individual models/sounds), into `Assets/Art/...`, and log them in [../assets/credits.md](../assets/credits.md).

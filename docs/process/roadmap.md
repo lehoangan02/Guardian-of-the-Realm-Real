@@ -8,6 +8,7 @@ Hard deadline: **Nov 18 12:00 PM PST** (Nov 19 03:00 Vietnam). Internal deadline
 - [ ] Everyone: tools installed, Meta skills + MCP working ([../setup/](../setup/))
 - [ ] Unity project created, pinned versions recorded, "hello MR" (passthrough + hands + grab cube) on device
 - [ ] Board placement prototype: MRUK table detection + manual move/rotate/scale + spatial anchor
+- [ ] Hand interaction contract and Quest 3 risk spike: crossbow draw/landing preview, safe downward thunder stroke, open-hand meteor arming. See [../design/hand-interaction-plan.md](../design/hand-interaction-plan.md).
 - [ ] Audio direction meeting + reference list
 - **Exit:** the board appears on a real table and survives an app restart.
 
@@ -21,12 +22,12 @@ Hard deadline: **Nov 18 12:00 PM PST** (Nov 19 03:00 Vietnam). Internal deadline
 ## W3 · Oct 21–27 — Heroes & gestures
 - [ ] Hero grab/drop on road, auto-combat, respawn
 - [ ] Mage + Barracks towers, upgrades
-- [ ] `HandGestureService`: palm-down cloud + rain, fist → thunder
+- [ ] `HandGestureService`: arrow draw/release with landing marker; selected fist-down thunder; connect typed action requests to teammate gameplay ports
 - [ ] Level 1 layout with real Kenney assets (rough)
-- **Exit:** Level 1 playable start-to-finish with rain + thunder; first playtest with someone outside the team.
+- **Exit:** Level 1 playable start-to-finish with arrow + thunder; first playtest with someone outside the team.
 
 ## W4 · Oct 28–Nov 3 — Content & first five minutes
-- [ ] Meteor + punch (prototype; cut if they don't feel good)
+- [ ] Selected open-hand meteor with landing preview; one-hand crossbow path; validate gesture conflict and cancellation on Quest 3
 - [ ] Tutorial / onboarding in Level 1's first waves
 - [ ] Enemy roster (4 + boss), KayKit heroes animated
 - [ ] Audio pass 1 (abilities, heroes, battle music loop)

@@ -1,0 +1,14 @@
+{
+    "name": "GuardianRealm.Hands.Contracts",
+    "rootNamespace": "GuardianRealm.Hands.Contracts",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

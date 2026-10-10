@@ -4,7 +4,7 @@
 
 **Who does what:** Step 0 is for everyone. Steps 1–4 are done **once by one person**, pushed, then everyone else clones and does step 5.
 
-> **Status (2026-10-07):** Step 1 is done (Le Hoang An created the project with the Universal 3D template, Unity 6000.3.16f1, template leftovers removed). Steps 2–4 are next.
+> **Status (2026-10-10):** Steps 1–3 base configuration are complete on `docs/hand-interaction-review`: Android OpenXR loader, Meta XR SDK 207.0.0, Hands Only, required passthrough/Scene support, Spatial Anchors, foveation/subsampled layout, and Meta Project Setup **Required = 0**. Live Unity console has zero errors. Step 4 (Bootstrap/hello-MR scene) and Quest 3 device validation remain; do not edit that shared scene without human approval.
 
 ## 0. Every teammate: install tools
 - [ ] **Unity Hub** + the team's pinned **Unity 6 LTS** version: **`6000.3.16f1`** (Unity 6.3 LTS, pinned 2026-10-07 in `ProjectSettings/ProjectVersion.txt`). Install exactly this version.
@@ -30,7 +30,7 @@
 3. Under OpenXR (Android): enable the **Meta Quest** feature group / *Meta Quest Support*; interaction profiles: **Hand Interaction Profile** (+ Meta hand tracking aim). We still may list Oculus Touch profile for editor convenience but the game must never require it.
 
 ## 3. Meta XR SDK
-1. Package Manager → *Unity Registry / My Assets* → add **Meta XR All-in-One SDK** (or individually: **Meta XR Core SDK, Meta XR Interaction SDK, Meta MR Utility Kit (MRUK), Meta XR Audio SDK, Meta XR Simulator**). Keep all Meta packages on the **same version**.
+1. Package Manager → *Unity Registry / My Assets* → add **Meta XR All-in-One SDK** (or individually: **Meta XR Core SDK, Meta XR Interaction SDK, Meta MR Utility Kit (MRUK), Meta XR Audio SDK, Meta XR Simulator**). When using All-in-One, let its manifest resolve component versions; its Audio and Voice dependencies may have different version numbers. Pin the All-in-One version and keep the generated lockfile.
 2. Open **Meta → Tools → Project Setup Tool** → *Fix All* for Android (and Windows/Mac editor). Re-run until green. It sets: Linear color, ARM64, IL2CPP, Vulkan, min API level, multiview, etc.
 3. Player Settings checks: Scripting Backend **IL2CPP**, Target Architectures **ARM64 only**, Graphics API **Vulkan**, Color Space **Linear**, Minimum API level per setup tool.
 4. URP asset: disable HDR, MSAA 4x, disable post-processing (or keep minimal), Render Scale 1.0; disable SSAO/depth/opaque texture unless needed.
@@ -61,7 +61,7 @@ Tips: use **Build And Run** with incremental builds; keep a small `Sandbox_<You>
 ## Developing without a headset (Mac / no device in reach)
 Do not build a separate 3D game and port it later. Build the level as a 3D diorama under `BoardRoot` (real table scale, ~0.6–1 m wide); the same level then works in a flat editor scene and in MR. MR only changes where the board sits (MRUK table + anchor) and where input comes from.
 - Gameplay listens to an input abstraction (`IGameInput`: poke spot, grab/drop hero, ability gestures), never to Meta hand APIs.
-- `HandGestureService` implements it on device. `DesktopDebugInput` implements it in the Editor only (click = poke, drag = grab/drop, keys 1–4 = rain/thunder/meteor/punch). It is a dev tool and must not ship, so the hands-only rule still holds for builds.
+- `HandGestureService` implements it on device. `DesktopDebugInput` implements it in the Editor only (click = poke, drag = grab/drop, keys 1–3 = arrow/thunder/meteor). It is a dev tool and must not ship, so the hands-only rule still holds for builds.
 - Only the device can validate: hand feel (pinch/grab thresholds, gesture recognition), board placement on a real table, readability at table distance, fps. Plan each lab visit with a checklist; the roadmap expects a device build every week.
 - If a teammate has Windows, borrow it for gesture tuning via Quest Link (real hands in Play mode).
 

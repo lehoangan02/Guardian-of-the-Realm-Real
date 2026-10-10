@@ -30,7 +30,7 @@
 ## How our design answers the brief
 | Brief | Our answer |
 |---|---|
-| Hands-first | Every action is a hand gesture: grab heroes, poke build spots, cloud/thunder/meteor/punch |
+| Hands-first | Every action is a hand gesture: grab heroes, poke build spots, crossbow arrow/thunder/meteor |
 | Seated | Board sits on a table in front of the player; all interaction within arm's reach |
 | ≤10 min satisfying | Level 1 ≈ 6–8 min; level 2 ≈ 8–10 min |
 | Fast cold start | Remembered board anchor → straight into the level menu |

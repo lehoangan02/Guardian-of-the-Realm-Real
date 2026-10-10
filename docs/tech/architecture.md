@@ -21,9 +21,9 @@
 | **Units** | `Enemy`, `EnemyDefinition` (SO), `Health`, `UnitMover`, `Blocker` | Enemy movement, combat, blocking |
 | **Towers** | `BuildSpot`, `Tower`, `TowerDefinition` (SO), `Projectile` (pooled) | Building/upgrading, targeting |
 | **Heroes** | `Hero`, `HeroDefinition` (SO), `HeroDragController` | Grab/drop on road, auto-combat, respawn |
-| **Abilities** | `AbilityController`, `RainCloudAbility`, `ThunderAbility`, `MeteorAbility`, `PunchAbility` | Gesture → ability, cooldowns |
-| **Input** | `IGameInput`, `HandGestureService` (device), `DesktopDebugInput` (Editor only, never shipped) | Gameplay depends only on `IGameInput` events (poke, grab/drop, ability gestures), so the full loop is playable with mouse/keyboard without a headset |
-| **Hands** | `HandGestureService` (wraps Interaction SDK pose/shape detection) | One place translating hand data into gesture events; abilities never read raw joints |
+| **Abilities** | `AbilityController`, `ArrowAbility`, `ThunderAbility`, `MeteorAbility` | Gesture → ability, cooldowns |
+| **Input** | `GuardianRealm.Hands.Contracts`, `IGameInput`, typed requests, preview ports; later `HandGestureService` and `DesktopDebugInput` | The implemented Meta-free contracts expose semantic requests and board-local previews. Device and Editor adapters will feed the same coordinator. |
+| **Hands** | `HandGestureService` (wraps Interaction SDK pose/shape detection) | Composes Meta hand adapter, interaction coordinator, and action objects; gameplay never reads raw joints |
 | **Economy** | `GoldWallet`, `LivesCounter` | |
 | **Audio** | `AudioService`, `SoundEvent` (SO with clip variants, volume, pitch range, mixer group) | All sounds go through `SoundEvent`s; music state machine |
 | **UI** | `WristMenu`, `RadialBuildMenu`, `WorldTooltip` | Poke-based UI |
@@ -33,7 +33,7 @@
 - **Pooling** for enemies, projectiles, VFX, audio sources — no `Instantiate`/`Destroy` during waves.
 - **Board-local space:** all gameplay positions are relative to `BoardRoot`; scale-independent math (use board scale factor for speeds/ranges).
 - **Events over references:** systems communicate with C# events / a light event bus; avoid singletons except `Services` locator in Bootstrap.
-- **Gesture layer isolation:** only `HandGestureService` touches Meta hand APIs → swap/tune detection in one place, test abilities in the editor with a fake gesture source.
+- **Gesture layer isolation:** only the adapter inside `HandGestureService` touches Meta hand APIs. Gameplay receives typed action requests and supplies board-local preview/validity through interfaces. See [../design/hand-interaction-plan.md](../design/hand-interaction-plan.md) and [../decisions/0003-hand-interaction-boundary.md](../decisions/0003-hand-interaction-boundary.md).
 
 ## Tests
 - EditMode tests for pure logic (wave scheduling, economy, targeting).

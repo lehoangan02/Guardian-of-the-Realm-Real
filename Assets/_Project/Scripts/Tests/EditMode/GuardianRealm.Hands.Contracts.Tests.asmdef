@@ -1,0 +1,23 @@
+{
+    "name": "GuardianRealm.Hands.Contracts.Tests",
+    "rootNamespace": "GuardianRealm.Hands.Contracts.Tests",
+    "references": [
+        "GuardianRealm.Hands.Contracts"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false,
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}

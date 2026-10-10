@@ -1,6 +1,6 @@
 # Audio guide — how to choose, where to find, how to implement
 
-Audio is **more important than usual** in this game: with no controllers there are **no haptics**, so sound is the main way the player *feels* a grab, a punch or a thunderstrike. Treat audio as a core feature, not polish.
+Audio is **more important than usual** in this game: with no controllers there are **no haptics**, so sound is the main way the player *feels* a grab, a crossbow release or a thunderstrike. Treat audio as a core feature, not polish.
 
 ## 1. Start with direction, not with browsing
 Before downloading anything, agree (30 min, whole team) on:
@@ -20,9 +20,9 @@ Priority: **P0** = needed for the playable build, **P1** = for submission, **P2*
 | Heroes | pick up (voice "Hey!"/"Whoa!"), put down/land, attack swings, special, death, respawn | P0 |
 | Towers | build (construction), upgrade, archer shot, mage zap, barracks bell/footsteps | P0 |
 | Enemies | footsteps loop (per type, quiet), hit, death "poof", reach gate (alarm), boss roar | P0 |
-| Abilities | cloud form, rain loop, thunder crack, meteor whoosh + impact, punch whoosh + bonk, cooldown ready chime | **P0 (most important)** |
+| Abilities | crossbow grip, string draw/release, arrow flight/impact, thunder crack, meteor whoosh/impact, lava loop, cooldown ready chime | **P0 (most important)** |
 | Game flow | wave incoming horn, wave cleared, gold earned (coin), life lost, victory fanfare, defeat sting | P0 |
-| Ambience | forest birds/wind (L1), castle wind/flags (L2), rain ambience during cloud | P1 |
+| Ambience | forest birds/wind (L1), castle wind/flags (L2), lava ambience during meteor area | P1 |
 | Music | menu/placement theme, build-phase calm loop, wave/battle loop, boss loop, victory & defeat stingers | P0 (1 battle loop) → P1 (rest) |
 | Voice | narrator lines for tutorial (can be text + SFX if no VO) | P2 |
 

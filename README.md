@@ -1,6 +1,6 @@
 # Guardian of the Realm
 
-A **hands-only mixed-reality tower-defense game** for Meta Quest 3. Place a miniature fantasy battlefield on your real table, then defend the realm by picking up heroes, building towers, and calling down rain, thunder and meteors with your bare hands.
+A **hands-only mixed-reality tower-defense game** for Meta Quest 3. Place a miniature fantasy battlefield on your real table, then defend the realm by picking up heroes, building towers, and drawing a crossbow, striking with thunder and dropping meteors with your bare hands.
 
 Entry for the **Meta VR Start Developer Competition 2026** (Gaming track) — submission deadline **Nov 18 2026, 12:00 PM PST**.
 

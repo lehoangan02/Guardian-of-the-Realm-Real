@@ -1,9 +1,9 @@
 # Game Design Document — Guardian of the Realm
 
-> Living document. Status: **v0.1 draft (2026-10-07)**. Change it freely, but log big changes in [../process/handoff.md](../process/handoff.md).
+> Living document. Status: **v0.2 draft (2026-10-10)**. Change it freely, but log big changes in [../process/handoff.md](../process/handoff.md).
 
 ## 1. Pitch
-*You are the giant guardian of a tiny kingdom on your table.* Waves of goblins and skeletons march along a road toward the castle. Build towers, pick up and drop heroes where they're needed, and use your own hands as the forces of nature: become a storm cloud, call down thunder, hurl meteors, or just punch a troll off the map.
+*You are the giant guardian of a tiny kingdom on your table.* Waves of goblins and skeletons march along a road toward the castle. Build towers, pick up and drop heroes where they're needed, and use your own hands as the forces of nature: draw a virtual crossbow, strike with thunder, and drop meteors from an open hand.
 
 **Pillars**
 1. **Your hands are the power.** Every verb is physical and satisfying; no menus to dig through, no controllers.
@@ -32,10 +32,9 @@ Enemies spawn at the board edge and walk a fixed path to the castle gate. Each e
 |---|---|---|
 | Build / upgrade tower | Poke a build spot → radial menu → poke option | Economy & strategy |
 | Move hero | Grab hero (pinch/palm grab), carry, release on road | Tactical positioning |
-| Rain cloud | Open hand **palm-down** hovering over board, hold | Slow + damage over time in an area |
-| Thunder | While cloud is active, **clench fist** | Single big strike, stun |
-| Meteor | **Pinch high above board, pull down / throw** | AoE burst, long cooldown |
-| Punch / flick | Fast fist or finger flick into enemies | Emergency "save", short cooldown, small knockback |
+| Arrow | Grip virtual crossbow, draw string farther for more range, release; landing marker previews impact | Ranged attack |
+| Thunder | Select thunder, make a fist, strike downward above the board | Attack exactly one enemy in the strike zone |
+| Meteor | Select meteor, open hand above board, hold briefly | Drop meteor from hand; impact and lingering lava area |
 
 ## 6. Content (competition scope)
 ### Towers (3 types, 2 upgrade levels each = 6 states)
@@ -60,33 +59,33 @@ Heroes respawn after 15 s at the castle if killed. Max 2 heroes on the board.
 | Skeleton warrior | Armored (weak to mage) |
 | Orc brute | Slow, tanky |
 | Bat / flying | Ignores blockers, only archers/abilities hit |
-| **Boss** (scaled-up orc/skeleton) | Final wave, punch-resistant, must be zapped |
+| **Boss** (scaled-up orc/skeleton) | Final wave; ability resistance to be decided by gameplay team |
 > Enemy models: KayKit Skeletons pack (same author, CC0) is a natural match; check before week 3.
 
 ### Levels
 | Level | Setting | Length | Teaches |
 |---|---|---|---|
-| 1 — Forest Road | Kenney Mini Forest + Fantasy Town | 6 waves, ~6–8 min | Placement, building, heroes, rain/thunder (tutorial) |
+| 1 — Forest Road | Kenney Mini Forest + Fantasy Town | 6 waves, ~6–8 min | Placement, building, heroes, arrow/thunder (tutorial) |
 | 2 — Castle Siege | Castle Kit, two paths merging | 8 waves + boss, ~8–10 min | Meteor, flying enemies, path choice |
 
 ## 7. First five minutes (prize target)
 - 0:00 passthrough + friendly narrator line ("Guardian, the realm needs you!") while the board "unfolds" on the table.
 - Wave 1 is only 3 goblins; a glowing hand ghost shows *poke the build spot*.
 - Wave 2 introduces grabbing the Knight.
-- Wave 3 the sky darkens → ghost hand shows palm-down cloud, then fist → thunder.
+- Wave 3 introduces the crossbow draw and landing marker; a later short prompt teaches a downward fist strike for thunder. Meteor is introduced after these actions.
 - No text walls: ghost hands + voice/SFX + 1-line captions.
 
 ## 8. Feedback & juice (no haptics → audio/visual carry everything)
 - Every hand action has: a sound, a particle, and a visible hand highlight.
 - Enemies react: hit flash, knockback, comedic death "poof".
-- Cloud: real-time shadow under the hand; rain particles; ambience changes.
+- Arrow: visible draw power and landing marker. Thunder: strike zone and single-target flash. Meteor: impact marker and readable lava boundary.
 - See [../assets/audio-guide.md](../assets/audio-guide.md).
 
 ## 9. Scope cuts (in priority order if we fall behind)
-1. Cannon tower 2. Level 2's second path 3. Second hero 4. Upgrade level 2 5. Floor mode 6. Meteor.
-**Never cut:** board placement, hands-only flow, rain + thunder, tutorial, audio, pause/resume.
+1. Cannon tower 2. Level 2's second path 3. Second hero 4. Upgrade level 2 5. Floor mode.
+**Never cut:** board placement, hands-only flow, arrow + thunder + meteor, tutorial, audio, pause/resume.
 
 ## 10. Open questions
 - Board scale default — test with real tables in week 1.
-- Punch: physics knockback vs. scripted? (Prototype both quickly.)
+- Crossbow: tune draw distance and one-hand fallback on Quest 3.
 - Score/stars per level for replayability?

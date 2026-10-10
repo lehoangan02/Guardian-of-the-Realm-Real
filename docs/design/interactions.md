@@ -1,36 +1,48 @@
 # Hand interaction spec
 
-> Hands only. No controllers, ever. Built on **Meta Interaction SDK** (hand grab, poke, pose/shape recognition). Before implementing, load the relevant Meta agent skill (`hz-unity-meta-core-sdk`, Interaction SDK skill) — APIs change between SDK versions.
+> Hands only. No controllers, ever. This specification follows the crossbow arrow, hammer thunder, and open-hand meteor design agreed 2026-10-10. Implementation boundaries, package inventory, and delivery gates live in [hand-interaction-plan.md](hand-interaction-plan.md). Planned against Unity `6000.3.16f1` and Meta XR SDK `207.0.0`; verify exact SDK APIs before coding.
 
 ## Design rules
-1. **Big targets, forgiving detection.** Tracking jitters; enemies are tiny. Use generous colliders and assist (snap to the nearest valid target).
-2. **Every gesture has a clear start, hold and release state** with distinct audio + visual feedback for each.
-3. **No accidental triggers.** Gestures only activate while the hand is *over the board volume* (except wrist menu). Add short hysteresis (enter/exit thresholds, ~100–150 ms dwell).
-4. **Ergonomic:** all interactions within ~60 cm of a seated player; no sustained raised arms (> 5 s) required.
-5. **Recover gracefully** when tracking is lost: cancel the current gesture, never fire it.
-6. **One-handed playable**; two hands only for board transform (optional alternative: handles).
 
-## Gestures
-| # | Action | Detection | Start / hold / release feedback | Notes |
-|---|---|---|---|---|
-| G1 | **Place board** | Two-hand pinch on board edges → move/rotate (yaw only)/scale; one-hand grab on a handle as fallback | Board outline glow; snap-to-surface click; "thunk" on confirm | Keep board level (lock pitch/roll). Snap to MRUK `TABLE` plane height when near |
-| G2 | **Poke button / build spot** | Interaction SDK Poke | Hover highlight → press "click" → radial menu pop | Radial menu items ≥ 4 cm |
-| G3 | **Grab hero** | HandGrab (pinch or palm) on hero collider (enlarged) | Hero lifts + dangles, "hey!" voice bark; road highlights valid drops | Invalid drop → hero walks back to the road |
-| G4 | **Rain cloud** | Hand shape: open, palm facing down (palm normal · down > 0.8), height 10–35 cm above board | Shadow decal under palm → after 0.3 s cloud forms, rain loop | Cloud follows palm (smoothed). Cooldown when released or after max duration |
-| G5 | **Thunder** | While G4 active, hand transitions to fist | Thunder crack + flash + camera-safe bolt to nearest enemy under the cloud | Consumes cloud charge |
-| G6 | **Meteor** | Pinch above a height threshold (≥ 40 cm over board) → pull down/throw; release point + velocity determine landing | Rumble while held, fireball trail, impact boom | Show landing reticle while held |
-| G7 | **Punch / flick** | Fist (or index finger) velocity > threshold intersecting an enemy collider | Whoosh + hit "bonk", enemy knockback | Short cooldown; bosses resist |
-| G8 | **Wrist menu** | Palm facing the user's face (palm-up, near head view) for 0.5 s | Menu blooms from wrist; poke items | Opening the menu pauses the game |
+1. **Big targets and forgiving aim.** Hand tracking jitters. Use generous hit regions and visible snap previews.
+2. **Clear action states.** Show available, armed, preview, committed, and cancelled states through visual and audio feedback.
+3. **No accidental casts.** Ability selection gates ability gestures. An active grab or menu suppresses ability recognition. Add short dwell and hysteresis, then tune on Quest 3.
+4. **Seated comfort.** Frequent actions stay within about 60 cm. No long raised-arm hold. Never require hitting the physical table.
+5. **Recover from tracking loss.** Cancel active interaction; never fire it. Preserve prior hero position when a drag fails.
+6. **One-hand path.** All gameplay remains playable with one hand. Crossbow's default uses two hands, with a one-hand draw control as fallback.
+7. **Either hand.** No hard-coded dominant hand. Both hands can use hero, UI, thunder, meteor, and the one-hand arrow control.
 
-## System behaviors
-- **Auto-pause** when: app loses focus, headset removed, both hands lost > 1 s during a wave, wrist menu open.
-- **Resume** with a 3-2-1 countdown.
-- **Handedness:** all gestures work with either hand. Optional left-handed setting for wrist menu side.
-- **Hand visuals:** use the SDK's hand mesh with a subtle magical tint; highlight fingertips when a gesture is "armed".
+## Actions
+
+| Action | Begin and aim | Commit | Cancel and feedback |
+|---|---|---|---|
+| **Board placement** | Grab board handle; optional two-hand transform | Poke confirmation | Outline and surface preview; release without confirmation or loss leaves prior placement. Board implementation belongs to MR team. |
+| **Build or barracks** | Poke build spot, tower, or barracks; hand ray plus pinch for distant targets | Poke action option | Hover highlight and available actions; invalid or unavailable action reports reason. Gameplay owns costs and effects. |
+| **Hero chess move** | Hand grab hero from bench or road; road snap preview follows hand | Release over valid road point | Invalid release or hand loss returns hero visual to prior location. Gameplay owns road validity and hero behavior. |
+| **Crossbow arrow** | Select crossbow; one hand grips virtual bow and other draws string. Draw distance sets normalized power. Aim marker shows predicted landing point. One-hand draw control available. | Release draw hand once | Releasing grip, menu, or hand loss cancels. Grip/draw sounds and marker communicate power. |
+| **Hammer thunder** | Select thunder; make fist over board. Marker shows strike zone. | Downward strike through virtual trigger plane above table | Wrong direction, no valid target, menu, or hand loss cancels. Exactly one enemy may be selected by gameplay in zone. |
+| **Open-hand meteor** | Select meteor; open hand above board. Marker follows projected point below hand. | Stable open-hand dwell while over valid board area; meteor falls from hand | Close hand or leave area before dwell to cancel. Gameplay owns impact and lava. |
+| **App menu** | Non-dominant palm-up index pinch, with accessible alternate hand | Poke or pinch menu action | Menu suspends gameplay gestures; close returns to prior state. Avoid accidental activation from ordinary palm-up pose. |
+
+## Shared behavior
+
+- A hand can own only one active action. Crossbow's two-hand mode owns both hands.
+- Previews do not spend resources or alter game state. The game accepts or rejects each committed request exactly once.
+- Auto-pause on app focus loss or headset removal. Opening app menu pauses. Tracking loss cancels actions; test whether additional auto-pause is needed rather than pausing every time both hands briefly leave view.
+- Resume with a clear countdown. Hide ability previews while paused.
+- Poke and grab use Meta Interaction SDK components. Custom ability recognizers use pose and timed movement states behind `HandGestureService`.
+- User feedback carries action state, available target, cooldown unavailable state, and rejection reason. Use audio/visual cues because bare hands provide no haptics.
 
 ## Tuning log
-Record thresholds here as they are tuned on device (value, date, who).
-| Param | Value | Date | Who |
-|---|---|---|---|
-| Palm-down dot threshold | 0.8 | — | — |
-| Punch velocity | ? m/s | — | — |
+
+Record measured values on Quest 3; numbers below are design starting points, not verified thresholds.
+
+| Parameter | Starting point | Measured value / date / tester |
+|---|---|---|
+| Ability arming dwell | About 100–150 ms | Not tested |
+| Meteor open-hand dwell | About 300 ms | Not tested |
+| Crossbow draw dead zone, cap, and power curve | Set after prototype | Not tested |
+| Thunder stroke distance and timing | Set after prototype; no physical table contact | Not tested |
+| Target size and spacing | Build options at least 4 cm as visual design target | Not tested |
+
+Meta references: [hand pose detection](https://developers.meta.com/vr/documentation/unity/unity-isdk-hand-pose-detection/), [tracking limits](https://developers.meta.com/vr/design/hands-limitations-mitigations/), [hand UI guidance](https://developers.meta.com/vr/design/hands-ui-best-practices/).

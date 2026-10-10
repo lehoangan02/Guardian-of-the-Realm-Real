@@ -3,7 +3,7 @@
 This is the **single source of truth for AI coding agents** (Claude Code, Codex, Antigravity/Gemini) working in this repo. `CLAUDE.md` and `GEMINI.md` only point here. Humans: start at [README.md](README.md) and [docs/README.md](docs/README.md).
 
 ## Project in one paragraph
-Guardian of the Realm is a **mixed-reality tower-defense game** (Kingdom Rush-style) for **Meta Quest 3** (and future Meta VR Glasses), built in **Unity 6 LTS** with the **Meta XR SDK** (OpenXR). A miniature battlefield is placed on a real table (or the floor) via passthrough. The game is played **with bare hands only — no controllers, ever**: players pick up and drop heroes, build towers, and cast abilities with gestures (cloud/rain, thunder, meteor, punch). It is our entry for the **Meta VR Start Developer Competition 2026 (Gaming track), deadline Nov 18 2026 12:00 PM PST**.
+Guardian of the Realm is a **mixed-reality tower-defense game** (Kingdom Rush-style) for **Meta Quest 3** (and future Meta VR Glasses), built in **Unity 6 LTS** with the **Meta XR SDK** (OpenXR). A miniature battlefield is placed on a real table (or the floor) via passthrough. The game is played **with bare hands only — no controllers, ever**: players pick up and drop heroes, build towers, and cast abilities with gestures (crossbow arrow, hammer thunder, open-hand meteor). It is our entry for the **Meta VR Start Developer Competition 2026 (Gaming track), deadline Nov 18 2026 12:00 PM PST**.
 
 ## Hard rules (do not break)
 1. **Hands-only.** Every feature must be fully usable with hand tracking. Never require a controller, never add a controller-only path. See [docs/design/interactions.md](docs/design/interactions.md).
@@ -31,6 +31,7 @@ Guardian of the Realm is a **mixed-reality tower-defense game** (Kingdom Rush-st
 | Art assets (Kenney, KayKit) | [docs/assets/art-assets.md](docs/assets/art-assets.md) |
 | Audio direction & sourcing | [docs/assets/audio-guide.md](docs/assets/audio-guide.md) |
 | Roadmap / milestones | [docs/process/roadmap.md](docs/process/roadmap.md) |
+| Hand interaction coding sequence and current state | [docs/process/hand-interaction-coding-plan.md](docs/process/hand-interaction-coding-plan.md), [docs/process/hand-interaction-progress.md](docs/process/hand-interaction-progress.md) |
 | Session handoff log | [docs/process/handoff.md](docs/process/handoff.md) |
 | Decisions (ADRs) | [docs/decisions/](docs/decisions/) |
 
@@ -49,6 +50,13 @@ Details in [docs/tech/conventions.md](docs/tech/conventions.md).
 3. Make small, focused changes. Follow [docs/tech/conventions.md](docs/tech/conventions.md).
 4. **Verify** (see below). If you cannot verify (e.g. needs the headset), say so explicitly.
 5. **Before ending:** append an entry to [docs/process/handoff.md](docs/process/handoff.md) and update any doc your change made stale. If you made an architectural/tooling decision, add an ADR in `docs/decisions/`.
+
+## Coding and build handoff
+- Before interaction code work, read the [coding plan](docs/process/hand-interaction-coding-plan.md) and [current progress](docs/process/hand-interaction-progress.md). Continue the first incomplete gate; verify current files and teammate changes before editing.
+- Keep hand tracking and gesture code behind semantic interfaces. Agree public contracts with gameplay teammates before changing them. Never add map, combat, economy, tower, barracks or hero rules to hand classes.
+- After **every build attempt**, successful or failed, update the active progress record with the build result, console/tests, device result if tested, blockers, and an exact next run. Record an in-progress job ID if the build has not finished. Update the record before starting more work.
+- At session end, append the same build outcome and exact next step to [docs/process/handoff.md](docs/process/handoff.md). Never replace historical entries. The next agent reads the latest progress and handoff first.
+- Builds and device installs still follow the authorization rule in [docs/setup/mcp.md](docs/setup/mcp.md). Do not claim a successful build proves headset gestures or performance.
 
 ## Verification
 - **Compile:** Unity console has no errors (via Unity MCP `read_console`, or ask the human).

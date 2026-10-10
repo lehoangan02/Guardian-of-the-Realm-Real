@@ -13,11 +13,11 @@ Everything the team (humans **and** AI agents) needs to know lives in this folde
 | Folder | What's in it | Owner of truth for |
 |---|---|---|
 | [competition/](competition/) | [brief.md](competition/brief.md) | Rules, dates, submission checklist |
-| [design/](design/) | [gdd.md](design/gdd.md), [interactions.md](design/interactions.md) | What the game is and how it feels |
+| [design/](design/) | [gdd.md](design/gdd.md), [interactions.md](design/interactions.md), [hand-interaction-plan.md](design/hand-interaction-plan.md) | What the game is and how it feels |
 | [tech/](tech/) | [architecture.md](tech/architecture.md), [conventions.md](tech/conventions.md), [git-workflow.md](tech/git-workflow.md) | How the code is built |
 | [setup/](setup/) | [unity-mr-quest3.md](setup/unity-mr-quest3.md), [mcp.md](setup/mcp.md), [agent-tooling.md](setup/agent-tooling.md) | Getting a machine ready |
 | [assets/](assets/) | [art-assets.md](assets/art-assets.md), [audio-guide.md](assets/audio-guide.md), [credits.md](assets/credits.md) | Third-party content & licenses |
-| [process/](process/) | [roadmap.md](process/roadmap.md), [handoff.md](process/handoff.md) | Plan & status |
+| [process/](process/) | [roadmap.md](process/roadmap.md), [hand-interaction-coding-plan.md](process/hand-interaction-coding-plan.md), [hand-interaction-progress.md](process/hand-interaction-progress.md), [handoff.md](process/handoff.md) | Plan & status |
 | [decisions/](decisions/) | ADRs `NNNN-title.md` | Why we chose X |
 
 ## Writing docs that work for agents
